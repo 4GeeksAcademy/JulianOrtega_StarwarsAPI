@@ -97,8 +97,8 @@ class Favorites(db.Model):
 
     id: Mapped[int] = mapped_column(primary_key=True)
     User_id: Mapped[int] = mapped_column(ForeignKey('User.id'), nullable=False)
-    People_id: Mapped[Optional[int]] = mapped_column(ForeignKey('People.id'))
-    Planets_id: Mapped[Optional[int]] = mapped_column(ForeignKey('Planets.id'))
+    People_id: Mapped[Optional[int]] = mapped_column(ForeignKey('People.id'), nullable=True)
+    Planets_id: Mapped[Optional[int]] = mapped_column(ForeignKey('Planets.id'), nullable=True)
 
     user: Mapped["User"] = relationship(back_populates="favorites")
     people: Mapped[Optional["People"]] = relationship(back_populates="favorites")
